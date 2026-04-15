@@ -1,10 +1,14 @@
-import app from "#app";
-import db from "#db/client";
+import express from "express";
+import employeesRouter from "#api/employees";
 
-const PORT = process.env.PORT ?? 3000;
+const app = express();
 
-await db.connect();
+app.use(express.json());
 
-app.listen(PORT, () => {
-  console.log(`Listening on port ${PORT}...`);
+app.get("/", (req, res) => {
+  res.send("Welcome to the Fullstack Employees API.");
 });
+
+app.use("/employees", employeesRouter);
+
+export default app;

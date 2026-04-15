@@ -13,11 +13,13 @@
     "db:reset": "npm run db:schema && npm run db:seed"
   },
   "imports": {
-    "#*": "./*.js"
+    "#db/*": "./db/*.js",
+    "#app": "./server.js",
+    "#api/*": "./api/*.js"
   },
   "dependencies": {
     "express": "^5.1.0",
-    "pg": "^8.14.1"
+    "pg": "^8.20.0"
   },
   "devDependencies": {
     "supertest": "^7.1.0",
